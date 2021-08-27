@@ -1,172 +1,138 @@
 import random
- 
-def cont():
-    q=input('do u wanna play again?(yes/no):').lower()
-    if q=='yes':
-        main()
-    elif q=='no':
+
+def conti():
+    p=input('do u wanna play again?(yes/no):').lower()
+    if p=='yes':
+     main()
+    elif p=='no':
         exit()
     else:
         print('Invalid input.Please try again')
-        cont()
- 
+    conti()
+
+
+
+
+def batp():  
+        print("It's time for the player to Bat")
+        total = 0
+        while (True):
+
+            match = random.randint(1, 6)
+            computer = random.randint(1, 6)
+            player = int(input("Play your shot: "))
+            if player>6:
+                print('u arent allowed to play any number more than 6.The game will restart now')
+                batp()
+
+            print("Computer plays: ", computer)
+            total = total + player
+            if (computer == player):
+                print("Number Matched! ..out!!!")
+                print("Your total runs =", total)
+                break
+           
+
+        print('The computer needs ', total+1, 'runs to win!')
+
+        print('The computer is batting.')
+        ctotal = 0
+        while (True):
+
+            cmatch = random.randint(1, 6)
+            computer = random.randint(1, 6)
+            player = int(input("put your ball: "))
+            print("Computer plays: ", computer)
+            ctotal = ctotal + computer
+
+
+            if (computer == player):
+                    print("Number Matched! ..out!!!")
+                    print("computer's total runs =", ctotal)
+            break
+        if ctotal>total:
+                    print('Oops! you lose!')
+        elif total>ctotal:
+                    print('Hurray! you win!')
+        else:
+                    print('tie!')
+
+
+
+
+
+def batc():
+    print("It's time for the computer to Bat.")
+    ctotal = 0
+    while (True):
+
+        cmatch = random.randint(1, 6)
+        computer = random.randint(1, 6)
+        player = int(input("Bowl: "))
+        if player>6:
+                print('u arent allowed to play any number more than 6.The game will restart now')
+                batc()
+        print("Computer plays: ", computer)
+        ctotal = ctotal + computer
+
+        if (computer == player):
+                print("Number Matched! ..out!!!")
+                print("computer's total runs =", ctotal)
+        break
+
+    print('The computer is bowling')
+    total = 0
+    while (True):
+
+                match = random.randint(1, 6)
+                computer = random.randint(1, 6)
+                player = int(input("Play your shot: "))
+                print("Computer plays: ", computer)
+                total = total + player
+
+                if (computer == player):
+                    print("Number Matched! ..out!!!")
+                print("Your total runs =", total)
+                break
+    if ctotal>total:
+        print('you lose!')
+    elif total>ctotal:
+        print('you win!')
+    else:
+        print('tie!')
+
+
+
+
 def main():
     print('''this is a man vs computer cricket game.There are some rules:-
 1.you can only enter 1 and 2 for the toss
-2.you can enter numbers from 1 to 10 while batting or balling
+2.you can enter numbers from 1 to 6 while batting or balling
 if u dont follow these the game will restart''')
-    o=int(input("The number of overs are: "))
-    def batp():  
-        i=1
-        print('The computer is bowling')
-        total = 0
-        while i<=o*6:
- 
-            match = random.randint(1, 6)
-            computer = random.randint(1, 6)
-            player = int(input("Play your shot: "))
-            if player>6:
-                print('u arent allowed to play any number more than 10.The game will restart now')
-                toss()
-            print("Computer plays: ", computer)
-            total = total + player
- 
-            if (computer == player):
-                print("Number Matched! ..out!!!")
-                print("Your total runs =", total)
-                i=i+1
-                break
- 
-        print('the computer needs ', total+1, 'runs to win!')
- 
-        print('it is computers time to bat.')
-        ctotal = 0
-        while i<=o*6:
- 
-            cmatch = random.randint(1, 6)
-            computer = random.randint(1, 6)
-            player = int(input("put your ball: "))
-            if player>6:
-                print('u arent allowed to play any number more than 10.The game will restart now')
-                toss()
-            print("Computer plays: ", computer)
-            ctotal = ctotal + computer
-            
- 
-            if (computer == player):
-                print("Number Matched! ..out!!!")
-                print("computer's total runs =", ctotal)
-                if ctotal>total:
-                    print('you lose!')
-                elif total>ctotal:
-                    print('you win!')
-                else:
-                    print('tie!')
-                    i=i+1
-                break
-            
-    def bat2():
-        j=1
-        print('it is computers time to bat.')
-        ctotal = 0
-        while j<=0*6:
- 
-            cmatch = random.randint(1, 6)
-            computer = random.randint(1, 6)
-            player = int(input("put your ball: "))
-            if player>6:
-                print('u arent allowed to play any number more than 10.The game will restart now')
-                toss()
-            print("Computer plays: ", computer)
-            ctotal = ctotal + computer
-            
-            if (computer == player):
-                print("Number Matched! ..out!!!")
-                print("computer's total runs =", ctotal)
-                j=j+1
-                break
- 
-        print('The computer is bowling')
-        total = 0
-        while j<=o*6:
- 
-            match = random.randint(1, 6)
-            computer = random.randint(1, 6)
-            player = int(input("Play your shot: "))
-            if player>6:
-                print('u arent allowed to play any number more than 10.The game will restart now')
-                toss()
-            print("Computer plays: ", computer)
-            total = total + player
- 
-            if (computer == player):
-                print("Number Matched! ..out!!!")
-                print("Your total runs =", total)
-                if ctotal>total:
-                    print('you lose!')
-                elif total>ctotal:
-                    print('you win!')
-                else:
-                    print('tie!')
-                    j=j+1
-                break
- 
-    def toss():
-        x=input('what do u want? (head/tail):').lower()
-        y=int(input('play your number for the toss(1/2):'))
-        if y>2:
-            print('u are only allowed to use 1 and 2.')
-            toss()
-        z=random.randint(1,2)
-        print('the computer has played',z,'for the toss')
-        if x=='tail':
-            if ((y+z)%2)==0:
-                print('you have won the toss')
-                a=input('what do u want?(bat/bowl)').lower()
-                if a=='bat':
-                    bat1()
-                elif a=='bowl':
-                    bat2()
-                else:
-                    print('invalid input.The game will restart')
-                    toss()
-            else:
-                x=random.choice(['bat','bowl'])
-                if x=='bat':
-                    print('The computer chooses to bat!')
-                    bat2()
-                elif x=='bowl':
-                    print('The computer chooses to bowl!')
-                    bat1()
-        elif x=='head':
-            if ((y+z)%2)==0:
-                y=random.choice(['bat','bowl'])
-                if y=='bat':
-                    print('The computer chooses to bat!')
-                    bat2()
-                elif y=='bowl':
-                    print('The computer chooses to bowl!')
-                    bat1()
-                
-            else:
-                print('you have won the toss')
-                a=input('what do u want?(bat/bowl)').lower()
-                if a=='bat':
-                    bat1()
-                elif a=='bowl':
-                    bat2()
-                else:
-                    print('invalid input.The game will restart')
-                    toss()
-        else:
-             print('invalid input.The game will restart')
-             toss()
- 
- 
- 
- 
- 
-    toss()
-    cont()
- 
-main()
+
+
+print("Here,Time for toss\nEnter 0 for Heads and 1 for Tails")
+y=int(input())
+z=random.randint(0,1)
+if(y==z):
+    print("Hurray! You have won the toss.")
+    print("Choose Batting or Bowling (1 for batting and 0 for bowling)")
+x=int(input())
+if(x==0):
+    print("you choose to bowl")
+    batc()
+
+elif(x!=0):
+    print("you choose to bat")
+    batp()
+else:
+    print("Oops! You have lost the toss.")
+rn=random.randint(0,1)
+if(rn==0):
+    print("computer choose to bowl")
+    batp()
+elif(rn==1):
+        print("computer choose to bat")
+        batc()
+        conti()
+          
